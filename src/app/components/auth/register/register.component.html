@@ -1,0 +1,48 @@
+<div class="flex h-screen justify-centre">
+    <form (ngSubmit)="submit()" #myForm="ngForm" class="p-4 m-auto rounded-lg border w-1/3">
+        <h1 class="text-centre text-xl">Register</h1>
+        <div class="my-5 w-full">
+            <label for="email">Email</label>
+            <input type="email" id="email" 
+            class="p-2 rounded w-full border" 
+            placeholder="Email Address"[(ngModel)]="form.email" #email="ngModel" name="email" required>
+        </div>
+        <div [hidden]="email.valid" class="p-2 bg-red text-red rounded">
+            Email must be valid
+        </div>
+        <div class="my-5 w-full">
+            <label for="password">Password</label>
+            <input type="password" id="password" 
+            class="p-2 rounded w-full border"
+             placeholder="Password"[(ngModel)]="form.password" #password="ngModel" name="password" required>
+        </div>
+        <div [hidden]="password.valid" class="p-2 bg-red text-red rounded">
+            Password must be valid
+        </div>
+        <div class="my-5 w-full">
+            <label for="Confirm password">Confirm Password</label>
+            <input type=" Confirm password" id="Confirm password"
+             class="p-2 rounded w-full border" placeholder="Confirm Password" 
+             [(ngModel)]="form.ConfirmPassword" #ConfirmPassword="ngModel" name="ConfirmPassword" required>
+        </div>
+
+        <div [hidden]="ConfirmPassword.valid" class="p-2 bg-red text-red rounded">
+            Password must be valid
+        </div>
+        <div class="my-5 w-full">
+            <button type="submit"  [disabled]="myForm.form.invalid" 
+            class="p-2 w-full bg-purple-900 text-white hover:bg-purple-900 rounded">
+            <ng-container *ngIf="isLoading">
+                Loading.....
+            </ng-container>
+
+            <ng-container *ngIf="!isLoading">
+                Submit
+            </ng-container>
+        
+        
+        </button>
+    
+    </form>
+
+</div>

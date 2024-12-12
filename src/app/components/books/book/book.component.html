@@ -1,0 +1,13 @@
+
+<li >
+    <p class="title">
+        {{book.name | titlecase}} by {{book.author | titlecase}}
+    </p>
+    <p class="currency">
+        {{book.amount | currency:'Ksh'}}
+    </p>
+    <button class="bg-yellow h-4px l-10px" *ngIf= "!isInCart" (click)="addToCart()">Add to Cart</button>
+    <button class="bg-red h-4px l-10px" *ngIf="isInCart" (click)="remove()">Remove from Cart</button>
+    
+    
+</li>
